@@ -1,4 +1,4 @@
-# The Machine
+# The Machine Project
 
 ---
 
