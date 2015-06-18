@@ -1,16 +1,12 @@
-# The Machine Project
+# The Machine
 
 ---
 
 *Welcome to the machine...* 
 
-<<<<<<< HEAD
 Sorry, we couldn't resist the joke. This project is a very, very minor simulation of `The Machine` from *Person of Interest*, perhaps one of the best TV shows ever. Here is the inspiration for the project [Reddit!](https://www.reddit.com/r/PersonOfInterest/comments/39z1st/i_started_building_a_machine/).
 
 New Reddit [post!](http://www.reddit.com/r/PersonOfInterest/comments/3absbr/the_machine_project_progress_update_new/) 
-=======
-Sorry, we couldn't resist the joke. This project is a very, very minor simulation of `The Machine` from *Person of Interest*, perhaps one of the best TV shows ever. Here is the inspiration for the project on [Reddit!](https://www.reddit.com/r/PersonOfInterest/comments/39z1st/i_started_building_a_machine/)
->>>>>>> origin/master
 
 As more development is done, we will continue to update this repository, but for now, here are our targeted goals:
 
