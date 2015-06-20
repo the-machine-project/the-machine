@@ -11,14 +11,14 @@ onlinestate=True
 
 def updatejsondata():
     runtime = {
-        'timeseconds' : runseconds
-        'timeminutes' : runminutes
-        'timehours' : runhours
-        'timedays' : rundays
-        'offline' : onlinestate
+        'timeseconds' : runseconds,
+        'timeminutes' : runminutes,
+        'timehours' : runhours,
+        'timedays' : rundays,
+        'offline' : onlinestate,
         }
 
-While True:
+while True:
     time.sleep(1)
     runseconds=runseconds+1
     if runseconds == 60:
