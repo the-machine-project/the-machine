@@ -21,3 +21,7 @@ Future goals include:
 Feel free to follow or fork this project. As always, making such a project is a lot of work, and any help is welcome. Please feel free to create issues and contribute to the project.
 
 TL;DR *Welcome to the machine...* 
+
+---
+
+The code in this repository is licensed under the MIT Open Source License. Here is a link for reference [MIT License](http://opensource.org/licenses/MIT).
