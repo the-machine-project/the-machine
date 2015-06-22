@@ -25,7 +25,7 @@ For those who just want to download the file, [Welcome to the Machine](https://m
 * For the webcam, the camera number should be zero, but if the application crashes, try entering a one.
 	* For the frame rate, enter the native frame rate of your webcam.
 * For resource disposal, this works on most devices, but sometimes, it won't; if it doesn't try leaving that checkbox blank.
-* Enjoy the Machine!
+* Enjoy the Machine! (Note, the program might crash the first or second time you run it; if it still crashes afterwards, a bug report would be really helpful).
 
 ---
 
