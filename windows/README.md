@@ -14,6 +14,7 @@ Once these pre-requisites are there:
 * Clone the repo to a directory.
 * Move the assets folder to the directory of the executable.
 * Add references to the ~~NAudio~~ (see above) library and Emgu CV library.
+* **Note:** make sure that the new project is a WPF project (the old application used to be a Winforms application and is now located in the `deprecated-winforms` branch. That will no longer be maintained and this will be the active branch.
 
 After this, everything else should be set up.
 
