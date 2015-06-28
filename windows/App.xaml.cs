@@ -18,7 +18,6 @@ namespace machine
             // Test whether or not to train the Machine by looking for the existence of various files.
             bool train = !Directory.Exists(FileUtilities.DirectoryName) || !File.Exists(FileUtilities.DirectoryName + "\\" + FileUtilities.AssetIndexData) ||
                 !File.Exists(FileUtilities.DirectoryName + "\\" + FileUtilities.CoreImageData);
-            Console.WriteLine(train);
             if (train)
             {
                 InputSelection i = new InputSelection(train, false, "ADMIN", InputSelection.TrainTitle, machine.MainWindow.TrainTitle, FaceIdentity.FaceAdmin);
