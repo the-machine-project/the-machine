@@ -19,14 +19,29 @@ using System.Windows.Media;
 using System.Runtime.InteropServices;
 using System.Windows.Media.Imaging;
 using System.Speech.Recognition;
-using System.Globalization;
 
 namespace machine
 {
     public partial class MainWindow : Window
     {
-        String userSpeech = "Speech Recognition Offline!";
+        String userSpeech = "";
         bool speechRecognitionOnline = true;
-        SpeechRecognitionEngine speechRecognitionEngine = new SpeechRecognitionEngine(new CultureInfo("en-US"));
+        SpeechRecognitionEngine speechRecognitionEngine = new SpeechRecognitionEngine();
+
+        private void InitializeSpeechRecognition()
+        {
+            if(speechRecognitionOnline)
+            {
+                speechRecognitionEngine.LoadGrammar(new Grammar(new GrammarBuilder("exit")));
+                speechRecognitionEngine.LoadGrammar(new DictationGrammar());
+                speechRecognitionEngine.SpeechRecognized += SpeechRecognized;
+                speechRecognitionEngine.SetInputToDefaultAudioDevice();
+                speechRecognitionEngine.RecognizeAsync(RecognizeMode.Multiple);
+            }
+        }
+
+        private void SpeechRecognized(object sender, SpeechRecognizedEventArgs args) {
+            userSpeech = args.Result.Text;
+        }
     }
 }

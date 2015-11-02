@@ -300,6 +300,7 @@ namespace machine
                         PanicAndTerminateProgram();
                     graphics.DrawImage(focusKindList[i] == FaceIdentity.FaceSecondary ? scaled_secondary_focus : scaled_admin_focus, scaled_face.Location);
                     graphics.DrawString(identifier, font, new SolidBrush(System.Drawing.Color.White), ConstructScaledPoint(face));
+                    graphics.DrawString(userSpeech, speechFont, new SolidBrush(System.Drawing.Color.White), SpeechScaledPoint(ConstructScaledPoint(face)));
                 }
                 else
                 {
@@ -313,6 +314,7 @@ namespace machine
                         PanicAndTerminateProgram();
                     graphics.DrawImage(faceIdentityTraining == FaceIdentity.FaceSecondary ? scaled_secondary_focus : scaled_admin_focus, scaled_face.Location);
                     graphics.DrawString(identifier, font, new SolidBrush(System.Drawing.Color.White), ConstructScaledPoint(face));
+                    graphics.DrawString(userSpeech, speechFont, new SolidBrush(System.Drawing.Color.White), SpeechScaledPoint(ConstructScaledPoint(face)));
                 }
             }
             if (machineIsTraining)
@@ -373,6 +375,7 @@ namespace machine
                         PanicAndTerminateProgram();
                     graphics.DrawImage(focusKindList[i] == FaceIdentity.FaceSecondary ? scaled_secondary_focus : scaled_admin_focus, scaled_face.Location);
                     graphics.DrawString(identifier, font, new SolidBrush(System.Drawing.Color.White), ConstructScaledPoint(face));
+                    graphics.DrawString(userSpeech, speechFont, new SolidBrush(System.Drawing.Color.White), SpeechScaledPoint(ConstructScaledPoint(face)));
                 }
                 else
                 {
@@ -387,6 +390,7 @@ namespace machine
                         PanicAndTerminateProgram();
                     graphics.DrawImage(faceIdentityTraining == FaceIdentity.FaceSecondary ? scaled_secondary_focus : scaled_admin_focus, scaled_face.Location);
                     graphics.DrawString(identifier, font, new SolidBrush(System.Drawing.Color.White), ConstructScaledPoint(face));
+                    graphics.DrawString(userSpeech, speechFont, new SolidBrush(System.Drawing.Color.White), SpeechScaledPoint(ConstructScaledPoint(face)));
                 }
             }
             if (machineIsTraining)

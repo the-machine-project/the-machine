@@ -63,6 +63,7 @@ namespace machine
         Bitmap threat_focus = null;
         PrivateFontCollection privateFontCollection = null; // Stores the Machine's Font Collection.
         Font font = null; // The font used by the Machine to display text (Call-One Regular).
+        Font speechFont = null;
         const int scale_factor = 4; // Reduce the size of the image before the ANN detects a face by this much.
         const int aesthetics_factor = 10; // Increase the size of the box surrounding a face by this many pixels for a more aesthetically pleasing look.
         const double box_magnification = 1.2; // Increases the height of the box by this factor.
@@ -121,10 +122,11 @@ namespace machine
             cameraNumber = cn;
             cameraFrameRate = fps;
             machineInputSourceKind = misk;
-            if (misk == MachineInputSourceKind.SourceWebcam) {
+            if (misk == MachineInputSourceKind.SourceFile || misk == MachineInputSourceKind.SourceNone || train)
                 speechRecognitionOnline = true;
-                userSpeech = "";
-            }
+            else
+                speechRecognitionOnline = true;
+            userSpeech = "";
             FileUtilities.DirectoryCreation();
             FileUtilities.TrainingDirectoryCreation();
             faceClassifier = new CascadeClassifier("assets\\haarcascade_frontalface_alt.xml");
@@ -281,6 +283,10 @@ namespace machine
             return new System.Drawing.Point(-1, -1);
         }
 
+        private System.Drawing.Point SpeechScaledPoint(System.Drawing.Point scaledPoint)
+        {
+            return new System.Drawing.Point(scaledPoint.X, scaledPoint.Y + (int) (aesthetics_factor * 2.5));
+        }
         /***
             Function: private void InitializeMachineFont()
             Parameter(s):
@@ -295,10 +301,8 @@ namespace machine
             else if (uikind == UIKind.UISamaritan)
                 privateFontCollection.AddFontFile("assets\\samaritan_font.otf");
             FontFamily[] fontFamilyArray = privateFontCollection.Families;
-            if(uikind == UIKind.UISamaritan)
-                font = new Font(fontFamilyArray[0], 14, System.Drawing.FontStyle.Regular);
-            else
-                font = new Font(fontFamilyArray[0], 10, System.Drawing.FontStyle.Regular);
+            font = new Font(fontFamilyArray[0], 14, System.Drawing.FontStyle.Regular);
+            speechFont = new Font(fontFamilyArray[0], 20, System.Drawing.FontStyle.Regular);
             if (font == null)
                 PanicAndTerminateProgram();
         }
@@ -358,6 +362,7 @@ namespace machine
         {
             // Make sure the font for the Machine is loaded.
             InitializeMachineFont();
+            InitializeSpeechRecognition();
 
             // Courtesy of Pink Floyd:
             // Welcome my son;
