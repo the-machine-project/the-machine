@@ -26,6 +26,8 @@ https://mega.nz/#!PVdixTxA!YuiL1yF2NT_UsjCZdVjQSxAgsiCJ-TxCWzrR-fi5eBA).
 x32 link: [The Machine](
 https://mega.nz/#!vcUkwTiT!CM6Ho5rX73vmBdxpH-83a_2rG0_Q9FMAG3AuUqBMTvQ).
 
+Here is the [Reddit Release Post](https://www.reddit.com/r/PersonOfInterest/comments/3lzu6z/we_built_a_machine/?ref=search_posts) for more background.
+
 ---
 
 The MIT License applies to this section of the Github repo as well. Please feel free to test out the repo and create issues. Of course, contributions are welcome as well. Starring and watching this repo would be welcome as well.
