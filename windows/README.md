@@ -22,6 +22,7 @@ For those who just want to download the file the 64-bit and 32-bit links are bel
 
 x64 link: [The Machine](
 https://mega.nz/#!PVdixTxA!YuiL1yF2NT_UsjCZdVjQSxAgsiCJ-TxCWzrR-fi5eBA).
+
 x32 link: [The Machine](
 https://mega.nz/#!vcUkwTiT!CM6Ho5rX73vmBdxpH-83a_2rG0_Q9FMAG3AuUqBMTvQ).
 
