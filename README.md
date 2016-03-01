@@ -2,13 +2,15 @@
 
 ---
 
-*Welcome to the machine...* 
+*Welcome to the machine...*
 
 Sorry, we couldn't resist the joke. This project is a very, very minor simulation of `The Machine` from *Person of Interest*, perhaps one of the best TV shows ever.
 
 Here is the original inspiration for the project [Reddit!](https://www.reddit.com/r/PersonOfInterest/comments/39z1st/i_started_building_a_machine/).
 
 You can keep up-to-date with most project developments [at our subreddit] (https://www.reddit.com/r/themachineproject)
+
+Website will be up soon [The Machine Project](http://www.themachineproject.org)
 
 As more development is done, we will continue to update this repository, but for now, here are our targeted goals:
 
@@ -22,7 +24,7 @@ Future goals include:
 
 Feel free to follow or fork this project. As always, making such a project is a lot of work, and any help is welcome. Please feel free to create issues and contribute to the project.
 
-TL;DR *Welcome to the machine...* 
+TL;DR *Welcome to the machine...*
 
 ---
 
