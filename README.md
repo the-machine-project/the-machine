@@ -10,7 +10,7 @@ Here is the original inspiration for the project [Reddit!](https://www.reddit.co
 
 You can keep up-to-date with most project developments [at our subreddit] (https://www.reddit.com/r/themachineproject)
 
-Our soon-to-be-up website is [here!](http://www.themachineproject.org)
+Our website is [here!](http://www.themachineproject.org)
 
 As more development is done, we will continue to update this repository, but for now, here are our targeted goals:
 
