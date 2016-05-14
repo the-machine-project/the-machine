@@ -1,0 +1,33 @@
+{
+  "name": "Morphist",
+  "version": "3.0.0",
+  "description": "A simple, high-performance and cross-browser jQuery slider / slideshow / carousel plugin for child objects powered by Animate.css.",
+  "authors": [
+    "Ian Lai <ian@fyianlai.com>"
+  ],
+  "main": [
+    "dist/morphist.js",
+    "dist/morphist.css"
+  ],
+  "keywords": [
+    "jquery",
+    "cycle",
+    "slider",
+    "slideshow",
+    "animate.css",
+    "carousel"
+  ],
+  "license": "http://ian.mit-license.org/",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "animate.css": "~3.5.1",
+    "jquery": "~2.1.4"
+  }
+}

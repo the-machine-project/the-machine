@@ -1,0 +1,31 @@
+{
+  "name": "Morphist",
+  "version": "3.0.0",
+  "description": "A simple, high-performance and cross-browser jQuery slider / slideshow / carousel plugin for child objects powered by Animate.css.",
+  "main": "Gruntfile.coffee",
+  "private": true,
+  "scripts": {
+    "build": "grunt",
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/MrSaints/Morphist.git"
+  },
+  "author": "Ian Lai <ian@fyianlai.com>",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://ian.mit-license.org/"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/MrSaints/Morphist/issues"
+  },
+  "homepage": "https://github.com/MrSaints/Morphist",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-eslint": "^18.0.0"
+  }
+}
