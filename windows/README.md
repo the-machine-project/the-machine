@@ -18,9 +18,15 @@ Once these pre-requisites are there:
 
 After this, everything else should be set up.
 
-For those who just want to download the file the 64-bit link is below (no 32-bit support yet). In order to run the file, make sure you have 7-zip, extract the files to a folder, and run the file: `machine.exe`.
+For those who just want to download the file the 64-bit and 32-bit links are below ~~(no 32-bit support yet)~~ (32-bit support added). In order to run the file, make sure you have 7-zip, extract the files to a folder, and run the file: `machine.exe`.
 
-x64 link: [The Machine](https://mega.nz/#!OZ0mxaQZ!ClG6S7iX8SAtrnxhkPSbPou72iKNpaNbQrdgQpKq4zM).
+x64 link: [The Machine](
+https://mega.nz/#!PVdixTxA!YuiL1yF2NT_UsjCZdVjQSxAgsiCJ-TxCWzrR-fi5eBA).
+
+x32 link: [The Machine](
+https://mega.nz/#!vcUkwTiT!CM6Ho5rX73vmBdxpH-83a_2rG0_Q9FMAG3AuUqBMTvQ).
+
+Here is the [Reddit Release Post](https://www.reddit.com/r/PersonOfInterest/comments/3lzu6z/we_built_a_machine/?ref=search_posts) for more background.
 
 ---
 

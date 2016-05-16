@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Surveillance Test</title>
+  <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="bower_components/animate.css/animate.min.css">
+  <link rel="stylesheet" href="bower_components/Morphist/dist/morphist.css">
+  <script>
+      $("#zoomout").Morphist({
+          animateIn: 'fadeInUp',
+          animateOut: 'fadeOutUp',
+          speed: 8000,
+
+      });
+  </script>
+</head>
+<body>
+  <div class="search">
+      <div class="identity">
+        <p>IDENTITY UNKNOWN</p>
+      </div>
+      <div class="search-assets">
+          <p>SEARCHING ASSETS</p>
+      </div>
+      <div class="assets">
+        <ul id="zoomout">
+            <li>
+              <div class="rank">
+              ADMIN:
+              </div>
+            <div class="name">
+              FINCH, HAROLD
+            </div>
+            </li>
+            <li>
+              <div class="rank">
+              AUX_ADMIN:
+              </div>
+            <div class="name">
+              INGRAM, NATHAN
+            </div>
+            </li>
+            <li>
+              <div class="rank">
+              PRIMARY ASSET:
+              </div>
+            <div class="name">
+              REESE, JOHN
+            </div>
+            </li>
+        </ul>
+
+      </div>
+  </div>
+
+  <script src="//cdn.jsdelivr.net/jquery/2.1.1/jquery.min.js"></script>
+  <script src="morphist.js"></script>
+  <script>
+      $("#zoomout").Morphist({
+          animateIn: 'fadeInUp',
+          animateOut: 'fadeOutUp'
+      });
+  </script>
+</body>
+</html>

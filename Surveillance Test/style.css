@@ -1,0 +1,232 @@
+/* TheMachineProject.org */
+/*
+RESET CSS
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol,
+ul {
+    list-style: none;
+}
+blockquote,
+q {
+    quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/*
+FONT!
+*/
+@font-face{
+	font-family: 'FuturaBT Light';
+	src: url('font/FuturaBT-Light.eot');
+	src: url('font/FuturaBT-Light.eot?#iefix') format('embedded-opentype'),
+	     url('font/FuturaBT-Light.woff') format('woff'),
+	     url('font/FuturaBT-Light.ttf') format('truetype'),
+	     url('font/FuturaBT-Light.svg#FuturaLT') format('svg');
+}
+@font-face{
+	font-family: 'Futura LT';
+	src: url('font/FuturaLT.eot');
+	src: url('font/FuturaLT.eot?#iefix') format('embedded-opentype'),
+	     url('font/FuturaLT.woff') format('woff'),
+	     url('font/FuturaLT.ttf') format('truetype'),
+	     url('font/FuturaLT.svg#FuturaLT') format('svg');
+}
+/* CODE! */
+body {
+    background: #2e2d2f;
+    padding: 250px;
+}
+.search {
+    margin: 0 auto;
+    width: 450px;
+    height: 180px;
+    background-color: #2f2f2f;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    border: 1px solid #f8f6f8;
+    background: black;
+}
+.identity p {
+    font-family: 'FuturaBT Light';
+    font-weight: 300;
+    font-style: normal;
+    color: #fff;
+    padding: 13px 0 0 13px;
+    background-color: #000;
+    -webkit-border-top-left-radius: 8px;
+    -webkit-border-top-right-radius: 8px;
+    -moz-border-radius-topleft: 8px;
+    -moz-border-radius-topright: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    height: 40px;
+    font-size: 30px;
+}
+.search-assets{
+    font-family: 'Futura LT';
+    font-weight: 500;
+    font-style: normal;
+    color: #000;
+    background-color: #fff;
+    height: 24px;
+    font-size: 21px;
+    padding: 5px 0 0 9px;
+}
+.search-assets p:after {
+    content: '.';
+    animation: dots 1s steps(5, end) infinite;
+}
+@keyframes dots {
+    0%, 20% {
+        color: rgba(0, 0, 0, 0);
+        text-shadow: .25em 0 0 rgba(0, 0, 0, 0), .5em 0 0 rgba(0, 0, 0, 0);
+    }
+    40% {
+        color: black;
+        text-shadow: .25em 0 0 rgba(0, 0, 0, 0), .5em 0 0 rgba(0, 0, 0, 0);
+    }
+    60% {
+        text-shadow: .25em 0 0 black, .5em 0 0 rgba(0, 0, 0, 0);
+    }
+    80%,
+    100% {
+        text-shadow: .25em 0 0 black, .5em 0 0 black;
+    }
+}
+
+.assets{
+  background: #2e2d2f;
+  height: 50px;
+  font-family: 'Futura LT';
+  font-weight: 500;
+  font-style: normal;
+  color: #fff;
+  font-size: 25px;
+    padding: 28px 0 0 20px;
+    width: 430px;
+}
+.assets .rank{
+  float: left;
+  color: #fffb47;
+}
+.assets .name{
+  float: left;
+  margin-left: 10px;
+}

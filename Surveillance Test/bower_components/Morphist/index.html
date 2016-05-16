@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Morphist Example / Demo</title>
+        <meta name="description" content="A simple, high-performance and cross-browser jQuery slider / slideshow / carousel plugin for child objects powered by Animate.css.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="bower_components/animate.css/animate.min.css">
+        <link rel="stylesheet" href="dist/morphist.css">
+    </head>
+    <body>
+        <div style="text-align:center">
+            I am a...
+            <ul id="js-rotating">
+                <li>So Simple</li>
+                <li>Very Doge</li>
+                <li>Much Wow</li>
+                <li>Such Cool</li>
+            </ul>
+            ...child object rotator.
+        </div>
+
+        <script src="//cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="bower_components/jquery/jquery.min.js"><\/script>')</script>
+        <script src="dist/morphist.js"></script>
+        <script>
+            $("#js-rotating").Morphist({
+                // These settings are optional
+                animateIn: "rotateIn",
+                animateOut: "rotateOut",
+                complete: function () {
+                    console.log("This is called after an item is animated in! Current child index: " + this.index);
+                }
+            });
+        </script>
+    </body>
+</html>
