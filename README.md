@@ -1,14 +1,12 @@
-# The Machine
-
----
-
-*Welcome to the machine...*
+Welcome to The Machine Project
+===================
+***Welcome to the machine...***
 
 Sorry, we couldn't resist the joke. This project is a very, very minor simulation of `The Machine` from *Person of Interest*, perhaps one of the best TV shows ever.
 
 Here is the original inspiration for the project [Reddit!](https://www.reddit.com/r/PersonOfInterest/comments/39z1st/i_started_building_a_machine/).
 
-You can keep up-to-date with most project developments [at our subreddit] (https://www.reddit.com/r/themachineproject)
+You can keep up-to-date with most project developments [at our subreddit](http://reddit.com/r/themachineproject).
 
 Our website is [here!](http://www.themachineproject.org)
 
@@ -26,6 +24,31 @@ Feel free to follow or fork this project. As always, making such a project is a 
 
 TL;DR *Welcome to the machine...*
 
----
+----------
+
+
+Setup
+-------------
+Before you want to install and run our machine you need to install necessery files.
+
+ 1. Download and install Java SDK 8 [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+ 2. Download and install IntelliJ [here](https://www.jetbrains.com/idea/download/#section=windows).
+ 3. Download JavaCV [here](http://search.maven.org/remotecontent?filepath=org/bytedeco/javacv/1.2/javacv-1.2-bin.zip).
+ 4. Download OpenCV [here](http://sourceforge.net/projects/opencvlibrary/files/opencv-win/3.1.0/opencv-3.1.0.exe/download).
+ 5. Download the machine [here](http://www.themachineproject.org).
+ 5. Run the OpenCV installation file and extract everything to `C:/`
+ 6. Extract JavaCV .zip file and extract javacv-bin folder to `C:/`
+ 7. Extract The Machine.
+ 8. Launch IntelliJ and select the machine folder, machine should be loaded into Intellij. 
+ 9. Open File -> Project Structure and select Modules on left and click Dependencies. With using green plus button on right of the screen add OpenCV and JavaCV dependencies. 
+ 10. After you have done everything it should like this:
+ 11. ![Dependencies](http://i.imgur.com/7rDAezu.png) .
+ 12.  Now click OK and close the window and run the machine.
+ 
+
+
+> **Tip:** You are ready to go! If any problems shows up. Open an issue on our [GitHub](https://github.com/poi-the-machine/the-machine) repo!
+
+----------
 
 The code in this repository is licensed under the MIT Open Source License. Here is a link for reference [MIT License](http://opensource.org/licenses/MIT).
