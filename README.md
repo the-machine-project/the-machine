@@ -29,7 +29,7 @@ TL;DR *Welcome to the machine...*
 
 Setup
 -------------
-Before you want to install and run our machine you need to install necessery files.
+If you want to develop for our machine, please follow these steps for Windows.
 
  1. Download and install Java SDK 8 [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
  2. Download and install IntelliJ [here](https://www.jetbrains.com/idea/download/#section=windows).
