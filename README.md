@@ -36,8 +36,8 @@ If you want to develop for our machine, please follow these steps for Windows.
  3. Download JavaCV [here](http://search.maven.org/remotecontent?filepath=org/bytedeco/javacv/1.2/javacv-1.2-bin.zip).
  4. Download OpenCV [here](http://sourceforge.net/projects/opencvlibrary/files/opencv-win/3.1.0/opencv-3.1.0.exe/download).
  5. Clone the Machine from GitHub.
- 5. Run the OpenCV installation file and extract everything to `C:/`
- 6. Extract JavaCV .zip file and extract javacv-bin folder to `C:/`
+ 5. Run the OpenCV installation file and extract everything to `C:\`
+ 6. Extract JavaCV .zip file and extract javacv-bin folder to `C:\`
  7. Extract The Machine.
  8. Make a copy of the opencv/ directory that was extracted to `C:\` to the root of the machine Intellij project.
  9. Launch IntelliJ and select the machine folder, machine should be loaded into Intellij. 
