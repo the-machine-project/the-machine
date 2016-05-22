@@ -23,7 +23,7 @@ public class MainPage extends Application {
         primaryStage.setTitle(Assets.TheMachine);
 
         System.load(System.getProperty("user.dir") + File.separator + "opencv" + File.separator + "build" + File.separator + "java" +
-                File.separator + "x64" + File.separator + "opencv_java300.dll");
+                File.separator + "x64" + File.separator + "opencv_java310.dll");
 
         // DO NOT MOVE THIS BEFORE THE SYSTEM LOAD!!!
         // IT CRASHES THE PROGRAM!!

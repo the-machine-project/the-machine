@@ -39,11 +39,12 @@ If you want to develop for our machine, please follow these steps for Windows.
  5. Run the OpenCV installation file and extract everything to `C:/`
  6. Extract JavaCV .zip file and extract javacv-bin folder to `C:/`
  7. Extract The Machine.
- 8. Launch IntelliJ and select the machine folder, machine should be loaded into Intellij. 
- 9. Open File -> Project Structure and select Modules on left and click Dependencies. With using green plus button on right of the screen add OpenCV and JavaCV dependencies. 
- 10. After you have done everything it should like this:
- 11. ![Dependencies](http://i.imgur.com/7rDAezu.png) .
- 12.  Now click OK and close the window and run the machine.
+ 8. Make a copy of the opencv/ directory that was extracted to `C:\` to the root of the machine Intellij project.
+ 9. Launch IntelliJ and select the machine folder, machine should be loaded into Intellij. 
+ 10. Open File -> Project Structure and select Modules on left and click Dependencies. With using green plus button on right of the screen add OpenCV and JavaCV dependencies. 
+ 11. After you have done everything it should like this:
+ 12. ![Dependencies](http://i.imgur.com/7rDAezu.png) .
+ 13.  Now click OK and close the window and run the machine.
  
 
 
