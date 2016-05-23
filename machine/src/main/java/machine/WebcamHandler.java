@@ -1,12 +1,14 @@
 package main.java.machine;
 
 import javafx.application.Platform;
+import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.opencv.core.Mat;
 import org.opencv.core.Rect;
@@ -46,7 +48,7 @@ public class WebcamHandler {
         scene = s;
         root = g;
         imageView = new ImageView();
-        videoCapture = new VideoCapture(0);
+        videoCapture = new VideoCapture(SelectWebcam.selectWebcam());
         if(!videoCapture.isOpened()) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Webcam initialization failure (perhaps you don't have a webcam or it is" +
                 " not supported by OpenCV). Exiting...", ButtonType.OK);
@@ -111,10 +113,10 @@ public class WebcamHandler {
             frame.release();
             if(update) {
                 Platform.runLater(() -> {
-                    stage.setHeight(processed.getHeight());
+
+                    stage.setHeight(processed.getHeight() + scene.getY());
                     stage.setWidth(processed.getWidth());
                     imageView.setImage(processed);
-                    stage.centerOnScreen();
                 });
             }
             count++;

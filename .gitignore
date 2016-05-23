@@ -218,3 +218,5 @@ _Pvt_Extensions
 
 target/
 out/
+FACIAL_DATA/
+*.db

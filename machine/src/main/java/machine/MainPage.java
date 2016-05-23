@@ -7,6 +7,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
+import org.opencv.videoio.VideoCapture;
 
 import java.io.File;
 
@@ -19,8 +20,8 @@ public class MainPage extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setTitle(Assets.TheMachine);
+        primaryStage.setResizable(false);
 
         System.load(System.getProperty("user.dir") + File.separator + "opencv" + File.separator + "build" + File.separator + "java" +
                 File.separator + "x64" + File.separator + "opencv_java310.dll");
