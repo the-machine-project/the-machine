@@ -35,12 +35,13 @@ public class MainPage extends Application {
         if(openCvInCurrentPath.exists() && openCvInCurrentPath.canRead()){
             //System.out.println("Could find file");
             fileToLoadFrom = openCvInCurrentPath;
-        } else if (openCvInC.exists() && openCvInC.canRead() && openCvInC.canExecute()) {
+        } else if (openCvInC.exists() && openCvInC.canRead()) {
             //System.out.println("Could find file in home directory");
             fileToLoadFrom = openCvInC;
         } else {
             // TODO: Add page to show that the file was not found instead of erroring.
-            fileToLoadFrom = openCvInC;
+            return;
+            // fileToLoadFrom = openCvInC;
         }
 
         System.load(fileToLoadFrom.getAbsolutePath());
