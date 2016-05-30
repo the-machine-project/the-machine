@@ -23,8 +23,28 @@ public class MainPage extends Application {
         primaryStage.setTitle(Assets.TheMachine);
         primaryStage.setResizable(false);
 
-        System.load(System.getProperty("user.dir") + File.separator + "opencv" + File.separator + "build" + File.separator + "java" +
-                File.separator + "x64" + File.separator + "opencv_java310.dll");
+//        System.load(System.getProperty("user.dir") + File.separator + "opencv" + File.separator + "build" + File.separator + "java" +
+//                File.separator + "x64" + File.separator + "opencv_java310.dll");
+
+        File openCvInCurrentPath = new File(System.getProperty("user.dir") + File.separator + "opencv" + File.separator
+                + "build" + File.separator + "java" +File.separator + "x64" + File.separator + "opencv_java310.dll");
+
+        File openCvInC = new File("C:" + File.separator + "opencv" + File.separator
+                + "build" + File.separator + "java" +File.separator + "x64" + File.separator + "opencv_java310.dll");
+        File fileToLoadFrom;
+        if(openCvInCurrentPath.exists() && openCvInCurrentPath.canRead()){
+            //System.out.println("Could find file");
+            fileToLoadFrom = openCvInCurrentPath;
+        } else if (openCvInC.exists() && openCvInC.canRead()) {
+            //System.out.println("Could find file in home directory");
+            fileToLoadFrom = openCvInC;
+        } else {
+            // TODO: Add page to show that the file was not found instead of erroring.
+            return;
+            // fileToLoadFrom = openCvInC;
+        }
+
+        System.load(fileToLoadFrom.getAbsolutePath());
 
         // DO NOT MOVE THIS BEFORE THE SYSTEM LOAD!!!
         // IT CRASHES THE PROGRAM!!
