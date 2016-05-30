@@ -1,4 +1,4 @@
-package main.java.machine;
+package machine;
 
 import javafx.collections.FXCollections;
 import javafx.event.EventHandler;

@@ -1,4 +1,4 @@
-package main.java.machine;
+package machine;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -6,6 +6,7 @@ import javafx.scene.control.ButtonType;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.util.ArrayList;
 
@@ -17,8 +18,11 @@ public class IdentityDataBaseFile {
     public static final String INNER_IDENTITY_DELIMITER = "/\\", OUTER_IDENTITY_DELIMITER = "\n/\\\n";
     private File identityDataBaseFile, facialDataDirectory;
     private RecognitionMode recognitionMode;
+    private boolean update;
+    private boolean closeApplication, closeTerminal, clearTerminal;
 
     public IdentityDataBaseFile() {
+        update = false;
         identityDataBaseFile = new File(Assets.DATABASE_FILE);
         facialDataDirectory = new File(Assets.FACIAL_DATA_DIRECTORY);
         if(!identityDataBaseFile.exists() || !facialDataDirectory.exists()) {
@@ -35,6 +39,45 @@ public class IdentityDataBaseFile {
         }
         else
             recognitionMode = RecognitionMode.MODE_NORMAL;
+        closeApplication = false;
+        closeTerminal = false;
+        closeTerminal = false;
+    }
+
+    public boolean getClearTerminal() {
+        return clearTerminal;
+    }
+
+    public void setClearTerminal(boolean ct) {
+        clearTerminal = ct;
+    }
+
+    public boolean getCloseTerminal() {
+        return closeTerminal;
+    }
+
+    public void setCloseTerminal(boolean ct) {
+        closeTerminal = ct;
+    }
+
+    public boolean getCloseApplication() {
+        return closeApplication;
+    }
+
+    public void setCloseApplication(boolean ca) {
+        closeApplication = ca;
+    }
+
+    public boolean getUpdate() {
+        return update;
+    }
+
+    public void setUpdate(boolean u) {
+        update = u;
+    }
+
+    public void setRecognitionMode(RecognitionMode rm) {
+        recognitionMode = rm;
     }
 
     public RecognitionMode getRecognitionMode() {
@@ -77,6 +120,24 @@ public class IdentityDataBaseFile {
             System.exit(1);
         }
         return ret;
+    }
+
+    public void clearFile() {
+        try {
+            PrintWriter printWriter = new PrintWriter(identityDataBaseFile);
+            printWriter.write("");
+            printWriter.close();
+        } catch (IOException ex) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Cannot access the database file, please make sure that the Machine has the"
+                    + " correct file permissions.", ButtonType.OK);
+            alert.showAndWait();
+            System.exit(1);
+        }
+    }
+
+    public void writeAllIdentitiesToFile(ArrayList<Identity> il) {
+        for(Identity i : il)
+            writeIdentityToFile(i);
     }
 
     public void writeIdentityToFile(Identity identity) {

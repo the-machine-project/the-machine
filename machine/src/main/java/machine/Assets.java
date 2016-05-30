@@ -1,4 +1,4 @@
-package main.java.machine;
+package machine;
 
 import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
@@ -53,6 +53,7 @@ public class Assets {
     public static final Color TransparentBlack = new Color(0, 0, 0, 200);
     public static final Color AdminTextColor = new Color(238, 233, 60);
     public static final Color SecondaryTextColor = new Color(255, 255, 255);
+    public static final Color ThreatTextColor = new Color(235, 28, 36);
     public static final Color TransparentGray = new Color(207, 207, 207, 230);
 
     public static final String MachineV2 = "Machine v2.0";

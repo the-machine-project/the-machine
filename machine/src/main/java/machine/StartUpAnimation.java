@@ -1,4 +1,4 @@
-package main.java.machine;
+package machine;
 
 import com.sun.corba.se.impl.orbutil.graph.Graph;
 import javafx.animation.*;
@@ -39,7 +39,7 @@ import java.util.Random;
  */
 public class StartUpAnimation {
 
-    public static final String[] startUpText = {
+    public final String[] startUpText = {
             "[!]:./action.SYSTEM.BOOT",
             "efiboot loaded from device: Acpi(PNP0A03,0)/Pci(1C|4)/Pci(0|0)/SATA0,",
             "SATA1,SATA2,SATA3, SigE01574-16D9-4F98-8D56488F7CCCC8)",
@@ -175,36 +175,42 @@ public class StartUpAnimation {
             "PhxA"
     };
 
-    public static final String[] loadingComponents = {
+    public final String[] loadingComponents = {
             "INITIALIZING BOOT SEQUENCE",
-            "LOADING MAIN.JAVA.MACHINE.STARTUPANIMATION",
+            "LOADING machine.STARTUPANIMATION",
 
             "LOADING CORE FUNCTIONALITY",
-            "LOADING MAIN.JAVA.MACHINE.MAINPAGE",
-            "LOADING MAIN.JAVA.MACHINE.ASSETS",
+            "LOADING machine.MAINPAGE",
+            "LOADING machine.ASSETS",
 
             "INITIALIZING LOCAL DATABASE",
-            "LOADING MAIN.JAVA.MACHINE.IDENTITYDATABASE",
-            "LOADING MAIN.JAVA.MACHINE.IDENTITYENTRY",
-            "LOADING MAIN.JAVA.MACHINE.IDENTITY",
+            "LOADING machine.IDENTITYDATABASE",
+            "LOADING machine.IDENTITYENTRY",
+            "LOADING machine.IDENTITY",
 
             "INITIALIZING WEBCAM",
-            "LOADING MAIN.JAVA.MACHINE.WEBCAMHANDLER",
+            "LOADING machine.WEBCAMHANDLER",
 
             "LOADING PRE-EXISTING FACIAL DATA",
-            "LOADING MAIN.JAVA.MACHINE.FACE",
-            "LOADING MAIN.JAVA.MACHINE.RECOGNITIONMODE",
+            "LOADING machine.FACE",
+            "LOADING machine.RECOGNITIONMODE",
 
             "LOADING HIGHER-ORDER FUNCTIONS",
-            "LOADING MAIN.JAVA.MACHINE.FACIALDETECTION",
-            "LOADING MAIN.JAVA.MACHINE.FACIALRECOGNITION",
+            "LOADING machine.FACIALDETECTION",
+            "LOADING machine.FACIALRECOGNITION",
 
             "LOADING UI ELEMENTS",
             "FINALIZING BOOT SEQUENCE",
             "STARTING THE MACHINE"
     };
 
-    private static String assembleStartUpString() {
+    private IdentityDataBaseFile identityDataBaseFile;
+
+    public StartUpAnimation(IdentityDataBaseFile idbf) {
+        identityDataBaseFile = idbf;
+    }
+
+    private String assembleStartUpString() {
         String first = "";
         for(String s : startUpText)
             first += s + "\n";
@@ -212,7 +218,7 @@ public class StartUpAnimation {
         return first;
     }
 
-    public static void createStartUpAnimation(Stage primaryStage) {
+    public void createStartUpAnimation(Stage primaryStage) {
         Group root = new Group();
         Scene scene = new Scene(root, MainPage.INITIAL_WINDOW_WIDTH, MainPage.INITIAL_WINDOW_HEIGHT, Color.BLACK);
         String start = assembleStartUpString();
@@ -257,7 +263,7 @@ public class StartUpAnimation {
         primaryStage.centerOnScreen();
     }
 
-    private static double[] generateGoodLines(Rectangle2D.Double exclude) {
+    private double[] generateGoodLines(Rectangle2D.Double exclude) {
         Random random = new Random();
         while(true) {
             double x1 = random.nextInt((int) MainPage.INITIAL_WINDOW_WIDTH), x2 = x1 + random.nextInt(50) * (Math.random() < 0.5 ? 1 : -1);
@@ -269,7 +275,7 @@ public class StartUpAnimation {
         }
     }
 
-    private static void animateLineWithExclusion(GraphicsContext gc, Rectangle2D.Double exclude) {
+    private void animateLineWithExclusion(GraphicsContext gc, Rectangle2D.Double exclude) {
         double[] coords = generateGoodLines(exclude);
         double x1 = coords[0], y1 = coords[1], x2 = coords[2], y2 = coords[3];
         gc.fillOval(x1 - 2, y1 - 2, 4, 4);
@@ -277,7 +283,7 @@ public class StartUpAnimation {
         animateLine(gc, x1, y1, x2, y2, 100);
     }
 
-    private static void hookToGraphConstruction(Stage primaryStage, Scene scene, Group root) {
+    private void hookToGraphConstruction(Stage primaryStage, Scene scene, Group root) {
         Canvas canvas = new Canvas(MainPage.INITIAL_WINDOW_WIDTH, MainPage.INITIAL_WINDOW_HEIGHT);
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.setStroke(Color.WHITE);
@@ -338,7 +344,7 @@ public class StartUpAnimation {
         fadeTransition.play();
     }
 
-    private static Timeline animateLine(GraphicsContext gc, double x1, double y1, double x2, double y2, double millis) {
+    private Timeline animateLine(GraphicsContext gc, double x1, double y1, double x2, double y2, double millis) {
         Timeline timeline = new Timeline();
         IntegerProperty amount = new SimpleIntegerProperty(0);
         double xTimeStep = (x2 - x1) / 50,
@@ -353,7 +359,7 @@ public class StartUpAnimation {
         return timeline;
     }
 
-    private static void hookToProgressBar(Stage primaryStage, Scene scene, Group root) {
+    private void hookToProgressBar(Stage primaryStage, Scene scene, Group root) {
         Canvas canvas = new Canvas(MainPage.INITIAL_WINDOW_WIDTH, MainPage.INITIAL_WINDOW_HEIGHT);
         root.getChildren().add(canvas);
         GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -378,7 +384,7 @@ public class StartUpAnimation {
         });
     }
 
-    private static void hookToProgressBarStatus(Stage primaryStage, Scene scene, Group root, GraphicsContext gc) {
+    private void hookToProgressBarStatus(Stage primaryStage, Scene scene, Group root, GraphicsContext gc) {
         Font font = null, subFont = null;
         try {
             font = Font.loadFont(new FileInputStream(new File(Assets.MAGDA_CLEAN_MONO)), 14f);
@@ -426,7 +432,7 @@ public class StartUpAnimation {
         });
     }
 
-    private static void hookToFlickeringLoadingText(Label label) {
+    private void hookToFlickeringLoadingText(Label label) {
         Timeline timeline = new Timeline();
         timeline.setCycleCount(Animation.INDEFINITE);
         class Temp { boolean b = false; }
@@ -442,14 +448,12 @@ public class StartUpAnimation {
         timeline.play();
     }
 
-    private static void hookToMainApp(Stage primaryStage, Scene scene, Group root) {
+    private void hookToMainApp(Stage primaryStage, Scene scene, Group root) {
         Platform.runLater(() -> {
-            IdentityDataBaseFile identityDataBaseFile = new IdentityDataBaseFile();
             if (identityDataBaseFile.getRecognitionMode() == RecognitionMode.MODE_INITIAL_TRAINING ||
                     identityDataBaseFile.getRecognitionMode() == RecognitionMode.MODE_TRAINING)
                 new IdentityEntry(identityDataBaseFile);
-            WebcamHandler webcamHandler = new main.java.machine.WebcamHandler(primaryStage, scene, root, identityDataBaseFile.parseIdentityDataBaseFile(),
-                    identityDataBaseFile.getRecognitionMode());
+            WebcamHandler webcamHandler = new machine.WebcamHandler(primaryStage, scene, root, identityDataBaseFile);
             webcamHandler.grabWebcamOutput();
             primaryStage.setOnCloseRequest((WindowEvent windowEvent) -> {
                 webcamHandler.exit();

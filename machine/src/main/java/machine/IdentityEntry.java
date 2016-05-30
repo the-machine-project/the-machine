@@ -1,4 +1,4 @@
-package main.java.machine;
+package machine;
 
 import javafx.collections.FXCollections;
 import javafx.geometry.Pos;
@@ -37,7 +37,7 @@ public class IdentityEntry {
     private void show() {
         Stage primaryStage = new Stage();
         primaryStage.setResizable(false);
-        primaryStage.setTitle("Create a new main.java.machine.Identity");
+        primaryStage.setTitle("Create a new Identity");
         Group root = new Group();
         Scene scene = new Scene(root, INITIAL_WINDOW_WIDTH, INITIAL_WINDOW_HEIGHT, Color.WHITE);
         VBox parentVBox = new VBox(12);
@@ -157,7 +157,7 @@ public class IdentityEntry {
     }
 
     private boolean validUserInput(String str) {
-        if(str.contains(IdentityDataBaseFile.INNER_IDENTITY_DELIMITER) || str.contains(IdentityDataBaseFile.OUTER_IDENTITY_DELIMITER))
+        if(str.contains(IdentityDataBaseFile.INNER_IDENTITY_DELIMITER) || str.contains(IdentityDataBaseFile.OUTER_IDENTITY_DELIMITER) || str.contains(" "))
             return false;
         return true;
     }

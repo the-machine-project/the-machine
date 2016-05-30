@@ -1,4 +1,4 @@
-package main.java.machine;
+package machine;
 
 import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;

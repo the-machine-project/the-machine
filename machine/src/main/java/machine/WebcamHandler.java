@@ -1,6 +1,7 @@
-package main.java.machine;
+package machine;
 
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -8,6 +9,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.opencv.core.Mat;
@@ -42,8 +47,15 @@ public class WebcamHandler {
     public static final int UPDATE_RATE = 33 / 2;
     private CascadeClassifier faceDetector;
     private ArrayList<FacialRecognition.IdentityWithFaceRecognizer> identityWithFaceRecognizerList;
+    private Terminal terminal;
+    private IdentityDataBaseFile identityDataBaseFile;
+    private Permissions.PermissionLevel permissionLevel;
 
-    public WebcamHandler(Stage st, Scene s, Group g, ArrayList<Identity> il, RecognitionMode rm) {
+    public static final KeyCombination TERMINAL_KEYBOARD_SHORTCUT = new KeyCodeCombination(KeyCode.T, KeyCombination.CONTROL_DOWN, KeyCombination.ALT_DOWN);
+
+    public WebcamHandler(Stage st, Scene s, Group g, IdentityDataBaseFile idbf) {
+        permissionLevel = null;
+        identityDataBaseFile = idbf;
         stage = st;
         scene = s;
         root = g;
@@ -56,8 +68,8 @@ public class WebcamHandler {
             System.exit(1);
         }
         root.getChildren().add(imageView);
-        identityList = il;
-        recognitionMode = rm;
+        identityList = identityDataBaseFile.parseIdentityDataBaseFile();
+        recognitionMode = identityDataBaseFile.getRecognitionMode();
         count = 0;
         if(recognitionMode == RecognitionMode.MODE_INITIAL_TRAINING || recognitionMode == RecognitionMode.MODE_TRAINING) {
             File dir = new File(Assets.TRAINING_DIRECTORY);
@@ -65,14 +77,54 @@ public class WebcamHandler {
             identityWithFaceRecognizerList = new ArrayList<>();
         }
         else
-            identityWithFaceRecognizerList = FacialRecognition.initializeFacialRecognitionSystem(il);
+            identityWithFaceRecognizerList = FacialRecognition.initializeFacialRecognitionSystem(identityList);
         faceList = new ArrayList<>();
         faceDetector = Assets.faceDetector;
+        terminal = new Terminal(idbf);
+        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                Platform.runLater(() -> {
+                    if(TERMINAL_KEYBOARD_SHORTCUT.match(event) && permissionLevel != null)
+                        terminal.showTerminal(permissionLevel);
+                });
+            }
+        });
     }
 
     public void grabWebcamOutput() {
         ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
         Runnable frameGrabber = () -> {
+            if(identityDataBaseFile.getClearTerminal()) {
+                identityDataBaseFile.setClearTerminal(false);
+                Platform.runLater(() -> {
+                    terminal.clearTerminal();
+                });
+            }
+            if(identityDataBaseFile.getCloseTerminal()) {
+                identityDataBaseFile.setCloseTerminal(false);
+                Platform.runLater(() -> {
+                    terminal.closeTerminal();
+                });
+            }
+            if(identityDataBaseFile.getCloseApplication()) {
+                identityDataBaseFile.setCloseApplication(false);
+                exit();
+                System.exit(1);
+            }
+            if(identityDataBaseFile.getUpdate()) {
+                identityDataBaseFile.setUpdate(false);
+                identityList = identityDataBaseFile.parseIdentityDataBaseFile();
+                recognitionMode = identityDataBaseFile.getRecognitionMode();
+                if(recognitionMode == RecognitionMode.MODE_INITIAL_TRAINING || recognitionMode == RecognitionMode.MODE_TRAINING) {
+                    File dir = new File(Assets.TRAINING_DIRECTORY);
+                    dir.mkdir();
+                    identityWithFaceRecognizerList = new ArrayList<>();
+                }
+                else
+                    identityWithFaceRecognizerList = FacialRecognition.initializeFacialRecognitionSystem(identityList);
+                count = 0;
+            }
             Mat frame = new Mat();
             videoCapture.read(frame);
             Image newImage = null;
@@ -96,6 +148,7 @@ public class WebcamHandler {
                         newImage = facialDetection.draw(recognitionMode, faceList, count);
                         Imgcodecs.imwrite(Assets.TRAINING_DIRECTORY + File.separator + count + ".png", new Mat(frame, facialRects[0]));
                     }
+                    permissionLevel = facialDetection.getPermissionLevel();
                 }
             }
             else if(count % UPDATE_RATE == 0) {
@@ -104,16 +157,22 @@ public class WebcamHandler {
                 FacialRecognition facialRecognition = new FacialRecognition(frame, facialRects, recognitionMode, identityWithFaceRecognizerList);
                 faceList = facialRecognition.recognizeFaces();
                 newImage = facialDetection.draw(recognitionMode, faceList, count);
+                permissionLevel = facialDetection.getPermissionLevel();
             }
             else {
                 FacialDetection facialDetection = new FacialDetection(frame);
                 newImage = facialDetection.draw(recognitionMode, faceList, count);
+                permissionLevel = facialDetection.getPermissionLevel();
+            }
+            if(terminal.getCurrentlyOpen()) {
+                Platform.runLater(() -> {
+                    terminal.showTerminal(permissionLevel);
+                });
             }
             final Image processed = newImage;
             frame.release();
             if(update) {
                 Platform.runLater(() -> {
-
                     stage.setHeight(processed.getHeight() + scene.getY());
                     stage.setWidth(processed.getWidth());
                     imageView.setImage(processed);

@@ -1,4 +1,4 @@
-package main.java.machine;
+package machine;
 
 import org.opencv.core.Rect;
 

@@ -1,4 +1,4 @@
-package main.java.machine;
+package machine;
 
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.control.Alert;
@@ -14,6 +14,7 @@ import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 import java.io.ByteArrayInputStream;
+import java.security.Permission;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -24,9 +25,11 @@ import java.util.Date;
 public class FacialDetection {
 
     private Mat imageMat;
+    private Permissions.PermissionLevel permissionLevel;
 
     public FacialDetection(Mat mat) {
         imageMat = mat;
+        permissionLevel = null;
     }
 
     public Rect[] detectFaces(CascadeClassifier cascadeClassifier) {
@@ -59,6 +62,7 @@ public class FacialDetection {
         g.setFont(Assets.MagdaCleanMonoSmall);
         double machineV2Height = Assets.MagdaCleanMonoSmall.getLineMetrics(Assets.MachineV2, g.getFontMetrics().getFontRenderContext()).getHeight();
         g.drawString(Assets.MachineV2, 5, 5 + (int) currentTimeHeight + (int) machineV2Height + 5);
+        permissionLevel = faceList.size() == 0 ? Permissions.PermissionLevel.KIND_REGULAR : Permissions.PermissionLevel.KIND_READ_WRITE_MODIFY;
         for(Face face : faceList) {
             Rect rect = face.getRect();
             BufferedImage designation = null;
@@ -81,13 +85,17 @@ public class FacialDetection {
                         break;
                     case KIND_ANALOG_INTERFACE:
                         designation = SwingFXUtils.fromFXImage(Assets.AnalogInterfaceDesignation, null);
+                        break;
                     default:
                         Alert alert = new Alert(Alert.AlertType.ERROR, "Internal Machine error, exiting.", ButtonType.OK);
                         alert.showAndWait();
                         System.exit(1);
                         break;
                 }
-                color = Assets.AdminTextColor;
+                if(face.getIdentity().getPermissionsKind() == Identity.PermissionsKind.KIND_THREAT)
+                    color = Assets.ThreatTextColor;
+                else
+                    color = Assets.AdminTextColor;
                 str = face.getIdentity().getPermissionsString();
                 uname = "User Name: " + face.getIdentity().getUserName().substring(0, face.getIdentity().getUserName().length() < 10 ? face.getIdentity().getUserName().length() : 10);
                 if(face.getIdentity().getUserName().length() > 10)
@@ -98,7 +106,8 @@ public class FacialDetection {
                     about += "...";
                 id = "ID: " + face.getIdentity().getGeneratedId();
             }
-
+            if(Permissions.getNumericPermissions(Permissions.getPermissionsFromFace(face)) < Permissions.getNumericPermissions(permissionLevel))
+                permissionLevel = Permissions.getPermissionsFromFace(face);
             g.drawImage(designation, rect.x, rect.y, rect.width, rect.height, (java.awt.Image img, int infoflags, int x, int y, int width, int height) -> false);
 
             String assetOrSecondary = (str.equals("SECONDARY") ? "SECONDARY IDENTIFIED" : "ASSET IDENTIFIED");
@@ -168,6 +177,10 @@ public class FacialDetection {
         Mat mat = new Mat(newBufferedImage.getHeight(), newBufferedImage.getWidth(), CvType.CV_8UC3);
         mat.put(0, 0, data);
         return mat;
+    }
+
+    public Permissions.PermissionLevel getPermissionLevel() {
+        return permissionLevel;
     }
 
     public static Image toImage(Mat mat) {

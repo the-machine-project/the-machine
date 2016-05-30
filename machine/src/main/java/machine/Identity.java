@@ -1,4 +1,4 @@
-package main.java.machine;
+package machine;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
