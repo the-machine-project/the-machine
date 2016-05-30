@@ -40,8 +40,8 @@ public class MainPage extends Application {
             fileToLoadFrom = openCvInC;
         } else {
             // TODO: Add page to show that the file was not found instead of erroring.
-            return;
             // fileToLoadFrom = openCvInC;
+            return;
         }
 
         System.load(fileToLoadFrom.getAbsolutePath());
