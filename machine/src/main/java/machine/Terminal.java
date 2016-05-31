@@ -41,7 +41,7 @@ public class Terminal {
         currentlyOpen = true;
         permissionLevel = null;
         primaryStage = new Stage();
-        primaryStage.setTitle("Machine Terminal");
+        primaryStage.setTitle(Assets.TheMachineTerminal);
         allLines = new VBox(5);
         allLines.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
         allLines.setBorder(new Border(new BorderStroke(Color.TRANSPARENT, BorderStrokeStyle.NONE, CornerRadii.EMPTY, BorderWidths.EMPTY)));

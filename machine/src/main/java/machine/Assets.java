@@ -58,6 +58,12 @@ public class Assets {
 
     public static final String MachineV2 = "Machine v2.0";
     public static final String TheMachine = "The Machine";
+    public static final String TheMachineTerminal = "The Machine Terminal";
+
+    public static final String SPEECH = ASSETS + File.separator + "SPEECH";
+    public static final String SPEECH_ACOUSTIC_MODEL_PATH = SPEECH + File.separator + "en-us";
+    public static final String SPEECH_DICTIONARY_PATH = SPEECH + File.separator + "cmudict-en-us.dict";
+    public static final String SPEECH_LANGUAGE_MODEL_PATH = SPEECH + File.separator + "en-us.lm.bin";
 
     private enum DesignationKind {
         KIND_ADMIN_AUX_ADMIN_ASSET_DESIGNATION, KIND_SECONDARY_DESIGNATION, KIND_THREAT_DESIGNATION, KIND_ANALOG_INTERFACE

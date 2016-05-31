@@ -92,7 +92,7 @@ public class IdentityEntry {
             String chosenPermission = permissionsOptions.getSelectionModel().getSelectedItem();
             String userName = "", aboutText = "";
             Identity.PermissionsKind permissionsKind = Identity.permissionStringToPermissionsKind(chosenPermission);
-            if(validUserInput(userNameTextField.getText()) && userNameTextField.getText().length() > 0)
+            if(validUserInput(userNameTextField.getText()) && userNameTextField.getText().length() > 0 && !userNameTextField.getText().contains(" "))
                 userName = userNameTextField.getText();
             else {
                 userNameTextField.setStyle("-fx-text-box-border: red;");
@@ -151,13 +151,22 @@ public class IdentityEntry {
             primaryStage.close();
         });
 
+        primaryStage.setOnCloseRequest((v) -> {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Identity entry cancelled, exiting application.", ButtonType.OK);
+            alert.showAndWait();
+            identityDataBaseFile.setCloseTerminal(true);
+            identityDataBaseFile.setCloseApplication(true);
+            identityDataBaseFile.setUpdate(true);
+            System.exit(1);
+        });
+
         primaryStage.setScene(scene);
         primaryStage.showAndWait();
         primaryStage.centerOnScreen();
     }
 
     private boolean validUserInput(String str) {
-        if(str.contains(IdentityDataBaseFile.INNER_IDENTITY_DELIMITER) || str.contains(IdentityDataBaseFile.OUTER_IDENTITY_DELIMITER) || str.contains(" "))
+        if(str.contains(IdentityDataBaseFile.INNER_IDENTITY_DELIMITER) || str.contains(IdentityDataBaseFile.OUTER_IDENTITY_DELIMITER))
             return false;
         return true;
     }

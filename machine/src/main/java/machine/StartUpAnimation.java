@@ -177,27 +177,27 @@ public class StartUpAnimation {
 
     public final String[] loadingComponents = {
             "INITIALIZING BOOT SEQUENCE",
-            "LOADING machine.STARTUPANIMATION",
+            "LOADING MACHINE.STARTUPANIMATION",
 
             "LOADING CORE FUNCTIONALITY",
-            "LOADING machine.MAINPAGE",
-            "LOADING machine.ASSETS",
+            "LOADING MACHINE.MAINPAGE",
+            "LOADING MACHINE.ASSETS",
 
             "INITIALIZING LOCAL DATABASE",
-            "LOADING machine.IDENTITYDATABASE",
-            "LOADING machine.IDENTITYENTRY",
-            "LOADING machine.IDENTITY",
+            "LOADING MACHINE.IDENTITYDATABASE",
+            "LOADING MACHINE.IDENTITYENTRY",
+            "LOADING MACHINE.IDENTITY",
 
             "INITIALIZING WEBCAM",
-            "LOADING machine.WEBCAMHANDLER",
+            "LOADING MACHINE.WEBCAMHANDLER",
 
             "LOADING PRE-EXISTING FACIAL DATA",
-            "LOADING machine.FACE",
-            "LOADING machine.RECOGNITIONMODE",
+            "LOADING MACHINE.FACE",
+            "LOADING MACHINE.RECOGNITIONMODE",
 
             "LOADING HIGHER-ORDER FUNCTIONS",
-            "LOADING machine.FACIALDETECTION",
-            "LOADING machine.FACIALRECOGNITION",
+            "LOADING MACHINE.FACIALDETECTION",
+            "LOADING MACHINE.FACIALRECOGNITION",
 
             "LOADING UI ELEMENTS",
             "FINALIZING BOOT SEQUENCE",
