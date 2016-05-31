@@ -1,16 +1,18 @@
-package main.java.machine;
+package org.machineproject.machine;
+
+import org.opencv.objdetect.CascadeClassifier;
+
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 import javafx.application.Platform;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
-import org.opencv.objdetect.CascadeClassifier;
-
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.io.File;
-import java.io.IOException;
 
 /**
  * Created by nathr on 3/19/2016.

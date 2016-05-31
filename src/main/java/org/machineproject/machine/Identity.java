@@ -1,9 +1,7 @@
-package main.java.machine;
+package org.machineproject.machine;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-
-import java.io.File;
 
 /**
  * Created by nathr on 3/19/2016.

@@ -1,10 +1,10 @@
-package main.java.machine;
+package org.machineproject.machine;
 
-import javafx.application.Platform;
-import javafx.embed.swing.SwingFXUtils;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import org.bytedeco.javacpp.*;
+import org.bytedeco.javacpp.BytePointer;
+import org.bytedeco.javacpp.opencv_core;
+import org.bytedeco.javacpp.opencv_face;
+import org.bytedeco.javacpp.opencv_imgcodecs;
+import org.bytedeco.javacpp.opencv_imgproc;
 import org.opencv.core.Mat;
 import org.opencv.core.Rect;
 
@@ -15,6 +15,11 @@ import java.io.IOException;
 import java.nio.IntBuffer;
 import java.util.ArrayList;
 import java.util.Collections;
+
+import javafx.application.Platform;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
 /**
  * Created by nathr on 3/20/2016.
@@ -30,7 +35,8 @@ public class FacialRecognition {
         private opencv_face.LBPHFaceRecognizer lbphFaceRecognizer;
         private double similarity;
 
-        public IdentityWithFaceRecognizer(Identity i, opencv_face.LBPHFaceRecognizer lbph) {
+        public IdentityWithFaceRecognizer(Identity i, opencv_face.LBPHFaceRecognizer
+                lbph) {
             identity = i;
             lbphFaceRecognizer = lbph;
             similarity = 0;
@@ -60,54 +66,67 @@ public class FacialRecognition {
     Mat imageMat;
 
     public static opencv_core.Mat openCVMatToJavaCVMat(Mat m) {
-        BufferedImage bufferedImage = SwingFXUtils.fromFXImage(FacialDetection.toImage(m), null);
-        BufferedImage newBufferedImage = new BufferedImage(bufferedImage.getWidth(), bufferedImage.getHeight(), BufferedImage.TYPE_3BYTE_BGR);
+        BufferedImage bufferedImage = SwingFXUtils.fromFXImage(FacialDetection.toImage
+                (m), null);
+        BufferedImage newBufferedImage = new BufferedImage(bufferedImage.getWidth(),
+                bufferedImage.getHeight(), BufferedImage.TYPE_3BYTE_BGR);
         newBufferedImage.setData(bufferedImage.getRaster());
-        opencv_core.Mat ret = new opencv_core.Mat(newBufferedImage.getHeight(), newBufferedImage.getWidth(), opencv_core.CV_8UC3, new BytePointer(((DataBufferByte) newBufferedImage.getRaster().getDataBuffer()).getData()));
+        opencv_core.Mat ret = new opencv_core.Mat(newBufferedImage.getHeight(),
+                newBufferedImage.getWidth(), opencv_core.CV_8UC3, new BytePointer((
+                (DataBufferByte) newBufferedImage.getRaster().getDataBuffer()).getData
+                ()));
         opencv_core.Mat fnal = new opencv_core.Mat();
-        org.bytedeco.javacpp.opencv_imgproc.cvtColor(ret, fnal, opencv_imgproc.CV_BGR2GRAY);
+        org.bytedeco.javacpp.opencv_imgproc.cvtColor(ret, fnal, opencv_imgproc
+                .CV_BGR2GRAY);
         return fnal;
     }
 
-    public static ArrayList<IdentityWithFaceRecognizer> initializeFacialRecognitionSystem(ArrayList<Identity> il) {
+    public static ArrayList<IdentityWithFaceRecognizer>
+    initializeFacialRecognitionSystem(ArrayList<Identity> il) {
         ArrayList<IdentityWithFaceRecognizer> ret = new ArrayList<>();
-        for(Identity identity : il) {
-            opencv_face.LBPHFaceRecognizer lbphFaceRecognizer = opencv_face.createLBPHFaceRecognizer();
-            lbphFaceRecognizer.load(new opencv_core.FileStorage(identity.getFacialDataFile(), opencv_core.FileStorage.READ));
+        for (Identity identity : il) {
+            opencv_face.LBPHFaceRecognizer lbphFaceRecognizer = opencv_face
+                    .createLBPHFaceRecognizer();
+            lbphFaceRecognizer.load(new opencv_core.FileStorage(identity
+                    .getFacialDataFile(), opencv_core.FileStorage.READ));
             ret.add(new IdentityWithFaceRecognizer(identity, lbphFaceRecognizer));
         }
         return ret;
     }
 
-    public FacialRecognition(Mat mat, Rect[] rs, RecognitionMode rm, ArrayList<IdentityWithFaceRecognizer> iwfrl) {
+    public FacialRecognition(Mat mat, Rect[] rs, RecognitionMode rm,
+                             ArrayList<IdentityWithFaceRecognizer> iwfrl) {
         rects = rs;
         imageMat = mat;
         faceList = new ArrayList<>();
-        for(Rect rect : rects)
+        for (Rect rect : rects)
             faceList.add(openCVMatToJavaCVMat(new Mat(imageMat, rect)));
         recognitionMode = rm;
         identityWithFaceRecognizerList = iwfrl;
     }
 
     public void release() {
-        for(opencv_core.Mat mat : faceList)
+        for (opencv_core.Mat mat : faceList)
             mat.release();
     }
 
     public ArrayList<Face> recognizeFaces() {
         ArrayList<Face> ret = new ArrayList<>();
-        for(int i = 0; i < faceList.size(); i++) {
+        for (int i = 0; i < faceList.size(); i++) {
             opencv_core.Mat mat = faceList.get(i);
             ArrayList<Double> confidenceList = new ArrayList<>();
-            for (IdentityWithFaceRecognizer identityWithFaceRecognizer : identityWithFaceRecognizerList) {
-                double[] confidence = new double[]{ 0.5 };
-                identityWithFaceRecognizer.getLbphFaceRecognizer().predict(mat, new int[] { 1 }, confidence);
+            for (IdentityWithFaceRecognizer identityWithFaceRecognizer :
+                    identityWithFaceRecognizerList) {
+                double[] confidence = new double[]{0.5};
+                identityWithFaceRecognizer.getLbphFaceRecognizer().predict(mat, new
+                        int[]{1}, confidence);
                 confidenceList.add(confidence[0]);
             }
             double minDistance = Collections.min(confidenceList);
             int minIndex = confidenceList.indexOf(minDistance);
-            if(minDistance <= THRESHOLD_DISTANCE)
-                ret.add(new Face(rects[i], identityWithFaceRecognizerList.get(minIndex).getIdentity()));
+            if (minDistance <= THRESHOLD_DISTANCE)
+                ret.add(new Face(rects[i], identityWithFaceRecognizerList.get(minIndex)
+                        .getIdentity()));
             else
                 ret.add(new Face(rects[i], null));
         }
@@ -118,25 +137,30 @@ public class FacialRecognition {
         File file = new File(identity.getFacialDataFile());
         try {
             file.createNewFile();
-        }
-        catch (IOException ex) {
+        } catch (IOException ex) {
             Platform.runLater(() -> {
-                Alert alert = new Alert(Alert.AlertType.ERROR, "Cannot create a facial data file, please make sure that the Machine has the"
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Cannot create a facial " +
+                        "data file, please make sure that the Machine has the"
                         + " correct file permissions.", ButtonType.OK);
                 alert.showAndWait();
                 System.exit(1);
             });
         }
         opencv_core.MatVector images = new opencv_core.MatVector(TRAINING_DURATION);
-        opencv_core.Mat labels = new opencv_core.Mat(TRAINING_DURATION, 1, opencv_core.CV_32SC1);
+        opencv_core.Mat labels = new opencv_core.Mat(TRAINING_DURATION, 1, opencv_core
+                .CV_32SC1);
         IntBuffer labelsBuffer = labels.getIntBuffer();
-        for(int i = 0; i < TRAINING_DURATION; i++) {
-            opencv_core.Mat m = opencv_imgcodecs.imread(Assets.TRAINING_DIRECTORY + File.separator + i + ".png", opencv_imgcodecs.CV_LOAD_IMAGE_GRAYSCALE);
+        for (int i = 0; i < TRAINING_DURATION; i++) {
+            opencv_core.Mat m = opencv_imgcodecs.imread(Assets.TRAINING_DIRECTORY +
+                    File.separator + i + ".png", opencv_imgcodecs
+                    .CV_LOAD_IMAGE_GRAYSCALE);
             images.put(i, m);
             labelsBuffer.put(i, 0);
         }
-        opencv_face.LBPHFaceRecognizer lbphFaceRecognizer = opencv_face.createLBPHFaceRecognizer();
+        opencv_face.LBPHFaceRecognizer lbphFaceRecognizer = opencv_face
+                .createLBPHFaceRecognizer();
         lbphFaceRecognizer.train(images, labels);
-        lbphFaceRecognizer.save(new opencv_core.FileStorage(identity.getFacialDataFile(), opencv_core.FileStorage.WRITE));
+        lbphFaceRecognizer.save(new opencv_core.FileStorage(identity.getFacialDataFile
+                (), opencv_core.FileStorage.WRITE));
     }
 }

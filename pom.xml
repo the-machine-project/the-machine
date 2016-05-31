@@ -24,7 +24,7 @@
             <artifactId>opencv</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/ASSETS/lib/opencv-310.jar</systemPath>
+            <systemPath>${project.basedir}/ASSETS/lib/x64/opencv-310.jar</systemPath>
         </dependency>
     </dependencies>
 

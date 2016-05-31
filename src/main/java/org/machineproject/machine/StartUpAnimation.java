@@ -1,38 +1,39 @@
-package main.java.machine;
-
-import com.sun.corba.se.impl.orbutil.graph.Graph;
-import javafx.animation.*;
-import javafx.application.Platform;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.*;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
-import javafx.util.Duration;
-import sun.applet.Main;
+package org.machineproject.machine;
 
 import java.awt.geom.Rectangle2D;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.Time;
 import java.util.Random;
+
+import javafx.animation.Animation;
+import javafx.animation.FadeTransition;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.ScaleTransition;
+import javafx.animation.Timeline;
+import javafx.application.Platform;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
+import javafx.util.Duration;
 
 /**
  * Created by nathr on 5/15/2016.
@@ -448,7 +449,7 @@ public class StartUpAnimation {
             if (identityDataBaseFile.getRecognitionMode() == RecognitionMode.MODE_INITIAL_TRAINING ||
                     identityDataBaseFile.getRecognitionMode() == RecognitionMode.MODE_TRAINING)
                 new IdentityEntry(identityDataBaseFile);
-            WebcamHandler webcamHandler = new main.java.machine.WebcamHandler(primaryStage, scene, root, identityDataBaseFile.parseIdentityDataBaseFile(),
+            WebcamHandler webcamHandler = new WebcamHandler(primaryStage, scene, root, identityDataBaseFile.parseIdentityDataBaseFile(),
                     identityDataBaseFile.getRecognitionMode());
             webcamHandler.grabWebcamOutput();
             primaryStage.setOnCloseRequest((WindowEvent windowEvent) -> {

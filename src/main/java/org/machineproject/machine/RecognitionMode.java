@@ -1,4 +1,4 @@
-package main.java.machine;
+package org.machineproject.machine;
 
 /**
  * Created by nathr on 3/18/2016.
