@@ -22,24 +22,7 @@ public class MainPage extends Application {
         primaryStage.setTitle(Assets.TheMachine);
         primaryStage.setResizable(false);
 
-        File openCvInCurrentPath;
-        if ("Linux".equalsIgnoreCase(UserPlatform.OS_NAME) && "amd64".equalsIgnoreCase
-                (UserPlatform.OS_ARCH)){
-            openCvInCurrentPath = new File(System.getProperty("user.dir") + File
-                    .separator + "ASSETS" + File.separator
-                    + "lib" + File.separator + "x64" + File
-                    .separator + "opencv_java310.so");
-        }else if ("Windows".equalsIgnoreCase(UserPlatform.OS_NAME) && "amd64"
-                .equalsIgnoreCase(UserPlatform.OS_ARCH)){
-            openCvInCurrentPath = new File(System.getProperty("user.dir") + File
-                    .separator + "opencv" + File.separator
-                    + "build" + File.separator + "java" + File.separator + "x64" + File
-                    .separator + "opencv_java310.dll");
-
-        }else{
-            openCvInCurrentPath = null;
-        }
-
+        File openCvInCurrentPath = UserPlatform.loadLibrary();
 
         File fileToLoadFrom;
         if (openCvInCurrentPath.exists() && openCvInCurrentPath.canRead()) {
