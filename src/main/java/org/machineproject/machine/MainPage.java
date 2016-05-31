@@ -22,28 +22,31 @@ public class MainPage extends Application {
         primaryStage.setTitle(Assets.TheMachine);
         primaryStage.setResizable(false);
 
-//        System.load(System.getProperty("user.dir") + File.separator + "opencv" + File
-// .separator + "build" + File.separator + "java" +
-//                File.separator + "x64" + File.separator + "opencv_java310.dll");
+        File openCvInCurrentPath;
+        if ("Linux".equalsIgnoreCase(UserPlatform.OS_NAME) && "amd64".equalsIgnoreCase
+                (UserPlatform.OS_ARCH)){
+            openCvInCurrentPath = new File(System.getProperty("user.dir") + File
+                    .separator + "ASSETS" + File.separator
+                    + "lib" + File.separator + "x64" + File
+                    .separator + "opencv_java310.so");
+        }else if ("Windows".equalsIgnoreCase(UserPlatform.OS_NAME) && "amd64"
+                .equalsIgnoreCase(UserPlatform.OS_ARCH)){
+            openCvInCurrentPath = new File(System.getProperty("user.dir") + File
+                    .separator + "opencv" + File.separator
+                    + "build" + File.separator + "java" + File.separator + "x64" + File
+                    .separator + "opencv_java310.dll");
 
-        File openCvInCurrentPath = new File(System.getProperty("user.dir") + File
-                .separator + "opencv" + File.separator
-                + "build" + File.separator + "java" + File.separator + "x64" + File
-                .separator + "opencv_java310.dll");
+        }else{
+            openCvInCurrentPath = null;
+        }
 
-        File openCvInC = new File("C:" + File.separator + "opencv" + File.separator
-                + "build" + File.separator + "java" + File.separator + "x64" + File
-                .separator + "opencv_java310.dll");
+
         File fileToLoadFrom;
         if (openCvInCurrentPath.exists() && openCvInCurrentPath.canRead()) {
             //System.out.println("Could find file");
             fileToLoadFrom = openCvInCurrentPath;
-        } else if (openCvInC.exists() && openCvInC.canRead()) {
-            //System.out.println("Could find file in home directory");
-            fileToLoadFrom = openCvInC;
         } else {
             fileToLoadFrom = null;
-
         }
 
         if(fileToLoadFrom == null){
@@ -59,7 +62,6 @@ public class MainPage extends Application {
             primaryStage.getIcons().add(Assets.Icon);
             StartUpAnimation.createStartUpAnimation(primaryStage);
         }
-
 
     }
 }
