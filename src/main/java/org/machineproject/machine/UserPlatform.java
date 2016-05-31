@@ -22,8 +22,8 @@ public final class UserPlatform {
         }else if ("Windows".equalsIgnoreCase(UserPlatform.OS_NAME) && "amd64"
                 .equalsIgnoreCase(UserPlatform.OS_ARCH)){
             openCvPath = new File(System.getProperty("user.dir") + File
-                    .separator + "opencv" + File.separator
-                    + "build" + File.separator + "java" + File.separator + "x64" + File
+                    .separator + "ASSETS" + File.separator
+                    + "lib" + File.separator + "x64" + File
                     .separator + "opencv_java310.dll");
 
         }else{
