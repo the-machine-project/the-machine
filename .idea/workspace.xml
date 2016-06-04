@@ -7,78 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3852f8c-de6c-4b37-9a1c-de83b59c35ae" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__edu_cmu_sphinx_sphinx4_core_5prealpha_SNAPSHOT.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__edu_cmu_sphinx_sphinx4_data_5prealpha_SNAPSHOT.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_math3_3_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/machine.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/themachineproject/machine/MainPage.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/themachineproject/machine/MicrophoneHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/themachineproject/machine/UserPlatform.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/org/themachineproject/machine/command/ResetCommand.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/.idea/.name" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/.idea/copyright/profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/.idea/encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/.idea/libraries/Maven__edu_cmu_sphinx_sphinx4_core_5prealpha_SNAPSHOT.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/.idea/libraries/Maven__edu_cmu_sphinx_sphinx4_data_5prealpha_SNAPSHOT.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/.idea/libraries/Maven__org_apache_commons_commons_math3_3_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/.idea/misc.xml___jb_bak___" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/.idea/uiDesigner.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/ASSETS/SPEECH/cmudict-en-us.dict" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/ASSETS/SPEECH/en-us.lm.bin" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/ASSETS/SPEECH/en-us/README" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/ASSETS/SPEECH/en-us/feat.params" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/ASSETS/SPEECH/en-us/mdef" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/ASSETS/SPEECH/en-us/means" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/ASSETS/SPEECH/en-us/mixture_weights" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/ASSETS/SPEECH/en-us/noisedict" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/ASSETS/SPEECH/en-us/sendump" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/ASSETS/SPEECH/en-us/transition_matrices" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/ASSETS/SPEECH/en-us/variances" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/DispatchTable.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/Permissions.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/Terminal.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/TextFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/command/AddUserCommand.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/command/ChPermCommand.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/command/ClearCommand.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/command/Command.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/command/ExitCommand.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/command/HelpCommand.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/command/KillAllCommand.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/command/LsUserCommand.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/command/RetrainCommand.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/command/RmUserCommand.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/machine.bat" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/machine/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/machine/ASSETS/DESIGNATIONS/ADMIN_AUX_ADMIN_ASSET.png" afterPath="$PROJECT_DIR$/ASSETS/DESIGNATIONS/ADMIN_AUX_ADMIN_ASSET.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/machine/ASSETS/DESIGNATIONS/ANALOG_INTERFACE.png" afterPath="$PROJECT_DIR$/ASSETS/DESIGNATIONS/ANALOG_INTERFACE.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/machine/ASSETS/DESIGNATIONS/SECONDARY.png" afterPath="$PROJECT_DIR$/ASSETS/DESIGNATIONS/SECONDARY.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/machine/ASSETS/DESIGNATIONS/THREAT.png" afterPath="$PROJECT_DIR$/ASSETS/DESIGNATIONS/THREAT.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/machine/ASSETS/FONTS/CallOne-Regular.ttf" afterPath="$PROJECT_DIR$/ASSETS/FONTS/CallOne-Regular.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/machine/ASSETS/FONTS/MagdaCleanMono.ttf" afterPath="$PROJECT_DIR$/ASSETS/FONTS/MagdaCleanMono.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/machine/ASSETS/ICON.jpg" afterPath="$PROJECT_DIR$/ASSETS/ICON.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/machine/ASSETS/haarcascade_frontalface_alt.xml" afterPath="$PROJECT_DIR$/ASSETS/haarcascade_frontalface_alt.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/Assets.java" afterPath="$PROJECT_DIR$/src/main/java/org/themachineproject/machine/Assets.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/Face.java" afterPath="$PROJECT_DIR$/src/main/java/org/themachineproject/machine/Face.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/FacialDetection.java" afterPath="$PROJECT_DIR$/src/main/java/org/themachineproject/machine/FacialDetection.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/FacialRecognition.java" afterPath="$PROJECT_DIR$/src/main/java/org/themachineproject/machine/FacialRecognition.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/Identity.java" afterPath="$PROJECT_DIR$/src/main/java/org/themachineproject/machine/Identity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/IdentityDataBaseFile.java" afterPath="$PROJECT_DIR$/src/main/java/org/themachineproject/machine/IdentityDataBaseFile.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/IdentityEntry.java" afterPath="$PROJECT_DIR$/src/main/java/org/themachineproject/machine/IdentityEntry.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/RecognitionMode.java" afterPath="$PROJECT_DIR$/src/main/java/org/themachineproject/machine/RecognitionMode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/StartUpAnimation.java" afterPath="$PROJECT_DIR$/src/main/java/org/themachineproject/machine/StartUpAnimation.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/WebcamHandler.java" afterPath="$PROJECT_DIR$/src/main/java/org/themachineproject/machine/WebcamHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/machine/.idea/compiler.xml" afterPath="$PROJECT_DIR$/machine/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/machine/.idea/machine.iml" afterPath="$PROJECT_DIR$/machine/.idea/machine.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/machine/.idea/workspace.xml" afterPath="$PROJECT_DIR$/machine/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/machine/pom.xml" afterPath="$PROJECT_DIR$/machine/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/machine/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/machine/src/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/MainPage.java" afterPath="$PROJECT_DIR$/machine/src/main/java/machine/MainPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/machine/src/main/java/machine/SelectWebcam.java" afterPath="$PROJECT_DIR$/machine/src/main/java/machine/SelectWebcam.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/themachineproject/machine/UserPlatform.java" afterPath="$PROJECT_DIR$/src/main/java/org/themachineproject/machine/UserPlatform.java" />
     </list>
     <ignored path="machine.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -105,7 +34,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="63" column="49" selection-start-line="63" selection-start-column="49" selection-end-line="63" selection-end-column="49" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -113,8 +44,8 @@
       <file leaf-file-name="UserPlatform.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/themachineproject/machine/UserPlatform.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41526845">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state vertical-scroll-proportion="1.4672819">
+              <caret line="81" column="12" selection-start-line="81" selection-start-column="12" selection-end-line="81" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -128,7 +59,8 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="28" column="97" selection-start-line="28" selection-start-column="97" selection-end-line="28" selection-end-column="97" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1918#1919#0" expanded="false" />
+                <element signature="e#1946#1947#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -139,9 +71,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -152,10 +82,7 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="57" column="50" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
               <folding>
-                <element signature="e#9706#9707#0" expanded="true" />
-                <element signature="e#9744#9745#0" expanded="true" />
-                <element signature="e#9796#9797#0" expanded="true" />
-                <element signature="e#9831#9832#0" expanded="true" />
+                <element signature="imports" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -167,7 +94,8 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#2609#2610#0" expanded="false" />
+                <element signature="e#2656#2657#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -178,9 +106,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -201,8 +127,7 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="450" column="0" selection-start-line="450" selection-start-column="0" selection-end-line="450" selection-end-column="0" />
               <folding>
-                <element signature="e#10688#10689#0" expanded="true" />
-                <element signature="e#10731#10732#0" expanded="true" />
+                <element signature="imports" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -259,10 +184,10 @@
         <option value="$PROJECT_DIR$/src/main/java/org/machineproject/machine/MicrophoneHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/themachineproject/machine/MicrophoneHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/themachineproject/machine/command/RetrainCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/themachineproject/machine/UserPlatform.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/themachineproject/machine/command/AddUserCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/themachineproject/machine/command/ResetCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/themachineproject/machine/MainPage.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/themachineproject/machine/UserPlatform.java" />
       </list>
     </option>
   </component>
@@ -305,6 +230,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -399,7 +325,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -781,12 +706,22 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/themachineproject/machine/Assets.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/themachineproject/machine/IdentityDataBaseFile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -804,7 +739,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="47" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1918#1919#0" expanded="false" />
+            <element signature="e#1946#1947#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -813,7 +749,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="63" column="49" selection-start-line="63" selection-start-column="49" selection-end-line="63" selection-end-column="49" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -832,10 +770,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="57" column="50" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
           <folding>
-            <element signature="e#9706#9707#0" expanded="true" />
-            <element signature="e#9744#9745#0" expanded="true" />
-            <element signature="e#9796#9797#0" expanded="true" />
-            <element signature="e#9831#9832#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -845,7 +780,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2609#2610#0" expanded="false" />
+            <element signature="e#2656#2657#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -855,8 +791,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="450" column="0" selection-start-line="450" selection-start-column="0" selection-end-line="450" selection-end-column="0" />
           <folding>
-            <element signature="e#10688#10689#0" expanded="true" />
-            <element signature="e#10731#10732#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -874,7 +809,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -892,7 +827,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="38" column="47" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1918#1919#0" expanded="false" />
+            <element signature="e#1946#1947#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -901,7 +837,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="63" column="49" selection-start-line="63" selection-start-column="49" selection-end-line="63" selection-end-column="49" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -920,10 +858,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="58" column="50" selection-start-line="58" selection-start-column="50" selection-end-line="58" selection-end-column="50" />
           <folding>
-            <element signature="e#9706#9707#0" expanded="true" />
-            <element signature="e#9744#9745#0" expanded="true" />
-            <element signature="e#9796#9797#0" expanded="true" />
-            <element signature="e#9831#9832#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -933,7 +868,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2609#2610#0" expanded="false" />
+            <element signature="e#2656#2657#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -943,8 +879,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="458" column="0" selection-start-line="458" selection-start-column="0" selection-end-line="458" selection-end-column="0" />
           <folding>
-            <element signature="e#10688#10689#0" expanded="true" />
-            <element signature="e#10731#10732#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1098,7 +1033,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1118,48 +1053,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/themachineproject/machine/StartUpAnimation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="450" column="0" selection-start-line="450" selection-start-column="0" selection-end-line="450" selection-end-column="0" />
-          <folding>
-            <element signature="e#10688#10689#0" expanded="true" />
-            <element signature="e#10731#10732#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/themachineproject/machine/WebcamHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="57" column="50" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
-          <folding>
-            <element signature="e#9706#9707#0" expanded="true" />
-            <element signature="e#9744#9745#0" expanded="true" />
-            <element signature="e#9796#9797#0" expanded="true" />
-            <element signature="e#9831#9832#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/themachineproject/machine/MicrophoneHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/themachineproject/machine/command/RetrainCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/themachineproject/machine/command/Command.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.41526845">
@@ -1173,17 +1066,7 @@
         <state vertical-scroll-proportion="0.52516776">
           <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/themachineproject/machine/command/AddUserCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1192,14 +1075,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="63" column="49" selection-start-line="63" selection-start-column="49" selection-end-line="63" selection-end-column="49" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/themachineproject/machine/command/ResetCommand.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/themachineproject/machine/UserPlatform.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+        <state vertical-scroll-proportion="1.4672819">
+          <caret line="81" column="12" selection-start-line="81" selection-start-column="12" selection-end-line="81" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1211,17 +1096,63 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="97" selection-start-line="28" selection-start-column="97" selection-end-line="28" selection-end-column="97" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1918#1919#0" expanded="false" />
+            <element signature="e#1946#1947#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/themachineproject/machine/UserPlatform.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/themachineproject/machine/command/ResetCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41526845">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/themachineproject/machine/WebcamHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="57" column="50" selection-start-line="57" selection-start-column="50" selection-end-line="57" selection-end-column="50" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/themachineproject/machine/MicrophoneHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+          <folding>
+            <element signature="e#2609#2610#0" expanded="false" />
+            <element signature="e#2656#2657#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/themachineproject/machine/command/AddUserCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/themachineproject/machine/command/RetrainCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/themachineproject/machine/StartUpAnimation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="450" column="0" selection-start-line="450" selection-start-column="0" selection-end-line="450" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
