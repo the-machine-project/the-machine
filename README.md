@@ -1,5 +1,7 @@
 Welcome to The Machine Project
 ===================
+
+[![Join the chat at https://gitter.im/the-machine-project/the-machine](https://badges.gitter.im/the-machine-project/the-machine.svg)](https://gitter.im/the-machine-project/the-machine?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ***Welcome to the machine...***
 
 Sorry, we couldn't resist the joke. This project is a very, very minor simulation of `The Machine` from *Person of Interest*, perhaps one of the best TV shows ever.
