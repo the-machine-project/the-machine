@@ -1,6 +1,7 @@
 package org.themachineproject.machine;
 
 import javafx.geometry.Insets;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
@@ -26,40 +27,38 @@ public class Terminal {
     private TextField currentCommandEntry;
     private ScrollPane scrollPane;
     private HBox currentLine;
-    private Stage primaryStage;
     private Scene scene;
+    private Stage primaryStage;
     private VBox allLines;
     private boolean currentlyOpen;
     private Font machineTerminalFont;
+    private Group root;
 
-    public static double INITIAL_WINDOW_WIDTH = 800, INITIAL_WINDOW_HEIGHT = 500;
+    public static double INITIAL_WINDOW_HEIGHT = 300;
 
     private void initialize() {
         currentlyOpen = true;
         permissionLevel = null;
-        primaryStage = new Stage();
-        primaryStage.setTitle(Assets.TheMachineTerminal);
         allLines = new VBox(5);
         allLines.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
-        allLines.setBorder(new Border(new BorderStroke(Color.TRANSPARENT, BorderStrokeStyle.NONE, CornerRadii.EMPTY, BorderWidths.EMPTY)));
         scrollPane = new ScrollPane(allLines);
-        scrollPane.setFitToHeight(true);
         scrollPane.setFitToWidth(true);
-        scrollPane.setFitToHeight(true);
+        scrollPane.setPrefHeight(INITIAL_WINDOW_HEIGHT);
+        scrollPane.setPrefWidth(scene.getWidth());
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
-        scene = new Scene(scrollPane, INITIAL_WINDOW_WIDTH, INITIAL_WINDOW_HEIGHT, Color.WHITE);
-        primaryStage.setScene(scene);
-        primaryStage.setOnCloseRequest((v) -> {
-            currentlyOpen = false;
-            allLines.getChildren().clear();
-        });
+        scrollPane.setTranslateY(scene.getHeight() - INITIAL_WINDOW_HEIGHT);
+        scrollPane.setStyle("-fx-background: black;");
+        root.getChildren().add(scrollPane);
     }
 
     private IdentityDataBaseFile identityDataBaseFile;
 
-    public Terminal(IdentityDataBaseFile idbf) {
+    public Terminal(IdentityDataBaseFile idbf, Stage s, Scene sc, Group g) {
         identityDataBaseFile = idbf;
+        primaryStage = s;
+        scene = sc;
+        root = g;
         currentlyOpen = false;
         try {
             machineTerminalFont = Font.loadFont(new FileInputStream(new File(Assets.CALL_ONE_REGULAR)), 10f);
@@ -76,7 +75,7 @@ public class Terminal {
     }
 
     public void closeTerminal() {
-        primaryStage.close();
+        root.getChildren().remove(scrollPane);
         currentlyOpen = false;
         allLines.getChildren().clear();
     }
@@ -105,6 +104,7 @@ public class Terminal {
             Command c = DispatchTable.COMMAND_DISPATCH_TABLE.get(input[0]);
             if(Permissions.getNumericPermissions(c.getMinimumPermissionLevel()) > Permissions.getNumericPermissions(permissionLevel)) {
                 HBox errorLine = new HBox();
+                errorLine.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
                 Text t = new Text("Error!");
                 t.setFont(machineTerminalFont);
                 t.setFill(Color.RED);
@@ -122,6 +122,7 @@ public class Terminal {
             ArrayList<ArrayList<TextFragment>> arr = c.getCommandOutput(input);
             for(ArrayList<TextFragment> line : arr) {
                 HBox l = new HBox();
+                l.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
                 for(TextFragment text : line) {
                     Text t = new Text(text.getText());
                     t.setFont(machineTerminalFont);
@@ -135,6 +136,7 @@ public class Terminal {
             return;
         }
         HBox errorLine = new HBox();
+        errorLine.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
         Text t = new Text("Error!");
         t.setFont(machineTerminalFont);
         t.setFill(Color.RED);
@@ -157,10 +159,10 @@ public class Terminal {
         currentPrompt.setTextFill(Color.WHITE);
         currentPrompt.setTranslateY(2);
         currentPrompt.setFocusTraversable(false);
+        currentPrompt.setStyle("-fx-background: black;");
         currentCommandEntry = new TextField();
-        currentCommandEntry.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
+        currentCommandEntry.setStyle("-fx-background-color: black; -fx-text-inner-color: white;");
         currentCommandEntry.setBorder(new Border(new BorderStroke(Color.TRANSPARENT, BorderStrokeStyle.NONE, CornerRadii.EMPTY, BorderWidths.EMPTY)));
-        currentCommandEntry.setStyle("-fx-text-inner-color: white;");
         currentCommandEntry.setFont(machineTerminalFont);
         currentCommandEntry.setPrefWidth(scrollPane.getWidth() - 10 - currentPrompt.getWidth() - 35);
         currentCommandEntry.requestFocus();
@@ -202,11 +204,8 @@ public class Terminal {
 
     public void showTerminal(Permissions.PermissionLevel pl) {
         permissionLevel = pl;
-        if(permissionLevel == Permissions.PermissionLevel.KIND_LOCKED) {
-            primaryStage.close();
-            currentlyOpen = false;
-            return;
-        }
+        if(permissionLevel == Permissions.PermissionLevel.KIND_LOCKED)
+            closeTerminal();
         boolean store = currentlyOpen;
         if(!currentlyOpen)
             initialize();

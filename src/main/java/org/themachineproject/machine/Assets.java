@@ -31,13 +31,17 @@ public class Assets {
     public static final String SECONDARY_DESIGNATION = DESIGNATIONS + File.separator + "SECONDARY.png";
     public static final String THREAT_DESIGNATION = DESIGNATIONS + File.separator + "THREAT.png";
     public static final String ANALOG_INTERFACE_DESIGNATION = DESIGNATIONS + File.separator + "ANALOG_INTERFACE.png";
-    public static final String ICON = ASSETS + "/" + "ICON.jpg";
+    public static final String ICON = ASSETS + File.separator + "ICON.jpg";
+    public static final String CLOSE_ICON = ASSETS + File.separator + "CLOSE.png";
+    public static final String MINIMIZE_ICON = ASSETS + File.separator + "MINIMIZE.png";
 
     public static final Image AdminAuxAdminAssetDesignation = loadDesignation(DesignationKind.KIND_ADMIN_AUX_ADMIN_ASSET_DESIGNATION);
     public static final Image SecondaryDesignation = loadDesignation(DesignationKind.KIND_SECONDARY_DESIGNATION);
     public static final Image ThreatDesignation = loadDesignation(DesignationKind.KIND_THREAT_DESIGNATION);
     public static final Image AnalogInterfaceDesignation = loadDesignation(DesignationKind.KIND_ANALOG_INTERFACE);
-    public static final Image Icon = loadIcon();
+    public static final Image Icon = loadImage(ICON);
+    public static final Image CloseIcon = loadImage(CLOSE_ICON);
+    public static final Image MinimizeIcon = loadImage(MINIMIZE_ICON);
 
     public static final CascadeClassifier faceDetector = loadCascadeClassifier();
 
@@ -58,7 +62,6 @@ public class Assets {
 
     public static final String MachineV2 = "Machine v2.0";
     public static final String TheMachine = "The Machine";
-    public static final String TheMachineTerminal = "The Machine Terminal";
 
     public static final String SPEECH = ASSETS + File.separator + "SPEECH";
     public static final String SPEECH_ACOUSTIC_MODEL_PATH = SPEECH + File.separator + "en-us";
@@ -73,9 +76,9 @@ public class Assets {
         return new CascadeClassifier(HAARCASCADE_FRONTALFACE_ALT_XML);
     }
 
-    private static Image loadIcon() {
+    private static Image loadImage(String path) {
         try {
-            return SwingFXUtils.toFXImage(ImageIO.read(new File(ICON)), null);
+            return SwingFXUtils.toFXImage(ImageIO.read(new File(path)), null);
         }
         catch (IOException ex) {
             Platform.runLater(() -> {

@@ -5,13 +5,13 @@ import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyCodeCombination;
-import javafx.scene.input.KeyCombination;
-import javafx.scene.input.KeyEvent;
+import javafx.scene.input.*;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -73,6 +73,9 @@ public class WebcamHandler {
             alert.showAndWait();
             System.exit(1);
         }
+        stage.setFullScreenExitHint("");
+        stage.setFullScreenExitKeyCombination(KeyCodeCombination.NO_MATCH);
+        stage.setFullScreen(true);
         root.getChildren().add(imageView);
         identityList = identityDataBaseFile.parseIdentityDataBaseFile();
         recognitionMode = identityDataBaseFile.getRecognitionMode();
@@ -86,7 +89,7 @@ public class WebcamHandler {
             identityWithFaceRecognizerList = FacialRecognition.initializeFacialRecognitionSystem(identityList);
         faceList = new ArrayList<>();
         faceDetector = Assets.faceDetector;
-        terminal = new Terminal(idbf);
+        terminal = new Terminal(idbf, stage, scene, root);
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
@@ -96,7 +99,7 @@ public class WebcamHandler {
                 });
             }
         });
-        scene.setFill(Color.WHITE);
+        scene.setFill(Color.BLACK);
 
         Font font = null;
         try {
@@ -109,13 +112,47 @@ public class WebcamHandler {
         }
         Text text = new Text("Speech Recognition");
         text.setFont(font);
+        text.setFill(Color.WHITE);
         text.setTranslateY(text.getLayoutBounds().getHeight());
         text.setTranslateX(5);
         root.getChildren().add(text);
         Text text2 = new Text();
         text2.setTranslateY(text.getLayoutBounds().getHeight() + 5);
+        text2.setFill(Color.WHITE);
         text2.setTranslateX(5);
         root.getChildren().add(text2);
+        ImageView close = new ImageView(Assets.CloseIcon);
+        close.setFitWidth(32);
+        close.setFitHeight(32);
+        close.setTranslateY(10);
+        close.setTranslateX(scene.getWidth() - close.getFitWidth() - 10);
+        close.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Platform.runLater(() -> {
+                            exit();
+                            stage.close();
+                            System.exit(1);
+                        });
+                event.consume();
+            }
+        });
+        ImageView minimize = new ImageView(Assets.MinimizeIcon);
+        minimize.setFitWidth(32);
+        minimize.setFitHeight(32);
+        minimize.setTranslateY(10);
+        minimize.setTranslateX(scene.getWidth() - close.getFitWidth() - minimize.getFitWidth() - 10);
+        minimize.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Platform.runLater(() -> {
+                    stage.setIconified(true);
+                });
+                event.consume();
+            }
+        });
+        root.getChildren().addAll(close, minimize);
+
         speechRecognitionThread = new Thread(() -> {
             microphoneHandler = new MicrophoneHandler(text2);
             microphoneHandler.startSpeechRecognition();
@@ -140,8 +177,11 @@ public class WebcamHandler {
             }
             if(identityDataBaseFile.getCloseApplication()) {
                 identityDataBaseFile.setCloseApplication(false);
-                exit();
-                System.exit(1);
+                Platform.runLater(() -> {
+                    exit();
+                    stage.close();
+                    System.exit(1);
+                });
             }
             if(identityDataBaseFile.getUpdate()) {
                 identityDataBaseFile.setUpdate(false);
@@ -204,9 +244,10 @@ public class WebcamHandler {
             frame.release();
             if(update) {
                 Platform.runLater(() -> {
-                    stage.setHeight(processed.getHeight() + scene.getY() + SPEECH_DISPLAY_HEIGHT);
-                    stage.setWidth(processed.getWidth());
                     imageView.setImage(processed);
+                    double xCenter = scene.getWidth() / 2, yCenter = scene.getHeight() / 2;
+                    imageView.setTranslateX(xCenter - processed.getWidth() / 2);
+                    imageView.setTranslateY(yCenter - processed.getHeight() / 2);
                 });
             }
             count++;
